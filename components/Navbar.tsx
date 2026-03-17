@@ -1,119 +1,144 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
 
-export default function BuiltSection() {
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
+
+  const resources = [
+    "Accessories",
+    "Installation guide",
+    "Maintenance tips",
+    "Warranty details",
+    "Product comparison",
+  ];
+
   return (
-    <section className="bg-[#f5f5f5] py-16 md:py-28 px-4 sm:px-6">
-      {/* Header */}
-      <div className="max-w-3xl mx-auto text-center mb-12 md:mb-24">
-        <p className="text-xs md:text-[13px] text-gray-500 mb-3 md:mb-4">Built</p>
+    <nav className="w-full bg-white border-b">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-4">
 
-        <h2 className="text-3xl sm:text-4xl md:text-[60px] leading-tight md:leading-[1.1] font-semibold text-gray-900 mb-4 md:mb-6">
-          For installers and homeowners
-        </h2>
+        {/* Logo */}
+        <div className="text-2xl font-semibold italic">
+          Logo
+        </div>
 
-        <p className="text-gray-600 text-sm sm:text-base md:text-[18px] px-2 sm:px-0">
-          One platform handles both retail and bulk orders.
-        </p>
+        {/* DESKTOP MENU */}
+        <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
+          <li className="hover:text-black cursor-pointer">Solar panels</li>
+          <li className="hover:text-black cursor-pointer">Inverters</li>
+          <li className="hover:text-black cursor-pointer">Batteries</li>
+          <li className="hover:text-black cursor-pointer">Electronics</li>
+
+          {/* Resources Dropdown */}
+          <li
+            className="relative"
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+          >
+            <div className="flex items-center gap-1 hover:text-black cursor-pointer">
+              Resources
+              <svg
+                className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+
+            {open && (
+              <div className="absolute top-8 left-0 bg-white shadow-lg rounded-lg w-60 py-2 z-50">
+                {resources.map((item) => (
+                  <div
+                    key={item}
+                    className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            )}
+          </li>
+        </ul>
+
+        {/* RIGHT (Desktop) */}
+        <div className="hidden md:flex items-center gap-4">
+          <button className="px-5 py-2 border rounded-full text-gray-700 hover:bg-gray-100">
+            Sign up
+          </button>
+
+          <button className="px-5 py-2 bg-yellow-400 rounded-full font-medium hover:bg-yellow-500">
+            Shop
+          </button>
+
+          <button className="w-10 h-10 flex items-center justify-center bg-yellow-400 rounded-full hover:bg-yellow-500">
+            🛒
+          </button>
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <button
+          onClick={() => setMobileMenu(!mobileMenu)}
+          className="md:hidden"
+        >
+          <svg
+            className="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {mobileMenu ? (
+              <path strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> // X
+            ) : (
+              <path strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /> // Hamburger
+            )}
+          </svg>
+        </button>
       </div>
 
-      {/* GRID */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-        
-        {/* LARGE CARD */}
-        <div className="col-span-1 sm:col-span-2 bg-white border border-gray-200 rounded-2xl md:rounded-[20px] p-5 sm:p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center h-auto md:h-[360px] gap-6">
-          
-          {/* TEXT */}
-          <div className="max-w-full md:max-w-[320px]">
-            <p className="text-xs md:text-[13px] text-gray-500 mb-2 md:mb-3">Retail</p>
+      {/* MOBILE MENU */}
+      {mobileMenu && (
+        <div className="md:hidden px-6 pb-6 space-y-4">
 
-            <h3 className="text-xl sm:text-2xl md:text-[30px] font-semibold text-gray-900 mb-3 md:mb-4 leading-snug">
-              Shop individual items
-            </h3>
+          <div className="space-y-3 text-gray-700 font-medium">
+            <div>Solar panels</div>
+            <div>Inverters</div>
+            <div>Batteries</div>
+            <div>Electronics</div>
 
-            <p className="text-gray-600 text-sm md:text-[15px] mb-5 md:mb-8">
-              Find the right equipment for your home or small business.
-            </p>
+            {/* Mobile Resources */}
+            <div>
+              <button
+                onClick={() => setOpen(!open)}
+                className="flex items-center justify-between w-full"
+              >
+                Resources
+                <span>{open ? "▲" : "▼"}</span>
+              </button>
 
-            <button className="w-full sm:w-auto bg-[#f5b21c] hover:bg-[#e0a315] px-6 py-3 rounded-full text-sm md:text-[15px] font-medium flex items-center justify-center gap-2">
-              Browse <span>›</span>
+              {open && (
+                <div className="mt-2 ml-3 space-y-2 text-sm text-gray-600">
+                  {resources.map((item) => (
+                    <div key={item}>{item}</div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Mobile Buttons */}
+          <div className="flex flex-col gap-3 pt-4 border-t">
+            <button className="w-full py-3 border rounded-full">
+              Sign up
+            </button>
+
+            <button className="w-full py-3 bg-yellow-400 rounded-full font-medium">
+              Shop
             </button>
           </div>
-
-          {/* IMAGE RIGHT */}
-          <div className="flex items-end justify-center md:justify-end w-full md:w-auto">
-            <Image
-              src="/images/install1.png"
-              alt="Solar products"
-              width={280}
-              height={280}
-              className="object-contain max-h-[180px] md:max-h-none"
-            />
-          </div>
         </div>
-
-        {/* SMALL CARD 1 */}
-        <div className="bg-white border border-gray-200 rounded-2xl md:rounded-[20px] p-5 md:p-6 flex flex-col justify-between h-auto md:h-[360px]">
-          
-          {/* TEXT */}
-          <div>
-            <p className="text-xs md:text-[13px] text-gray-500 mb-2">Bulk</p>
-
-            <h3 className="text-lg md:text-[22px] font-semibold text-gray-900 mb-2">
-              Request quotes fast
-            </h3>
-
-            <p className="text-gray-600 text-sm md:text-[14px] mb-4 md:mb-6">
-              Contractors and installers get pricing that works.
-            </p>
-
-            <button className="w-full sm:w-auto border border-gray-300 rounded-full px-4 py-2 text-sm md:text-[14px] font-medium">
-              Get Quote
-            </button>
-          </div>
-
-          {/* IMAGE */}
-          <Image
-            src="/images/install2.png"
-            alt="Request quote"
-            width={300}
-            height={120}
-            className="w-full h-[100px] md:h-[110px] object-cover rounded-lg mt-4"
-          />
-        </div>
-
-        {/* SMALL CARD 2 */}
-        <div className="bg-white border border-gray-200 rounded-2xl md:rounded-[20px] overflow-hidden flex flex-col justify-between h-auto md:h-[360px]">
-          
-          {/* TEXT */}
-          <div className="p-5 md:p-6">
-            <p className="text-xs md:text-[13px] text-gray-500 mb-2">Delivery</p>
-
-            <h3 className="text-lg md:text-[22px] font-semibold text-gray-900 mb-2">
-              Nationwide coverage
-            </h3>
-
-            <p className="text-gray-600 text-sm md:text-[14px] mb-3 md:mb-4">
-              We ship across Nigeria. Fast. Reliable. Tracked.
-            </p>
-
-            <a
-              href="#"
-              className="text-sm md:text-[14px] font-medium text-gray-900 inline-flex items-center gap-1"
-            >
-              Track orders <span>›</span>
-            </a>
-          </div>
-
-          {/* IMAGE */}
-          <Image
-            src="/images/install3.png"
-            alt="Solar roof"
-            width={300}
-            height={120}
-            className="w-full h-[100px] md:h-[120px] object-cover"
-          />
-        </div>
-      </div>
-    </section>
+      )}
+    </nav>
   );
 }

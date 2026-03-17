@@ -31,8 +31,7 @@ export default function Hero() {
   const ref500 = useCountUp(500, 10000);
 
   return (
-    <section className="relative min-h-[520px] md:min-h-[560px] flex flex-col justify-between px-4 sm:px-6 md:px-10 pt-10 md:pt-12 pb-8 md:pb-10 font-sans overflow-hidden">
-
+    <section className="relative min-h-[520px] md:min-h-[560px] flex flex-col justify-between px-4 sm:px-6 md:px-10 pt-10 md:pt-12 pb-32 md:pb-40 font-sans overflow-hidden">
       {/* Background Layer */}
       <div className="absolute inset-0 -z-10">
         <div

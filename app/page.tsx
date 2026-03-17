@@ -18,7 +18,7 @@ export default function Home() {
       <Features />
       <BestSellers />
       <Authentic />
-      <Installers />
+  <Installers />
       <HowItWorks />
       <CTA />
       <Footer />
