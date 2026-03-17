@@ -18,7 +18,6 @@ const categories = [
     image: "/images/category2.png",
     bg: "bg-[#D9ECFF]",
     button: "Shop inverters",
-    label: "Inverter",
   },
   {
     title: "Solar batteries",
@@ -61,22 +60,19 @@ export default function ProductCategories() {
 
               {/* Image Container */}
               <div
-                className={`h-[260px] sm:h-[300px] md:h-[340px] rounded-2xl ${item.bg} relative overflow-hidden flex items-center justify-center`}
+                className={`h-[260px] sm:h-[300px] md:h-[340px] rounded-2xl ${item.bg} relative overflow-hidden`}
               >
-                {/* Label */}
-                {item.label && (
-                  <h3 className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 text-white text-base md:text-lg font-semibold z-10">
-                    {item.label}
-                  </h3>
-                )}
-
-                {/* Image */}
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  className="
+                    object-cover w-full h-full
+                    transition-transform duration-300 ease-in-out
+                    group-hover:scale-105
+                    active:scale-105
+                  "
                 />
               </div>
 
@@ -96,7 +92,7 @@ export default function ProductCategories() {
               </div>
 
               {/* Button */}
-              <button className="w-full py-3 rounded-full bg-[#FBBF24] text-blue-900 font-medium hover:opacity-90 transition text-sm md:text-base">
+              <button className="w-full py-3 rounded-full bg-[#FBBF24] text-blue-900 font-medium hover:opacity-90 active:scale-95 transition text-sm md:text-base">
                 {item.button}
               </button>
             </div>
@@ -120,10 +116,10 @@ export default function ProductCategories() {
 
           {/* Arrows */}
           <div className="flex gap-3">
-            <button className="p-2 md:p-3 rounded-lg bg-gray-700 text-white hover:bg-gray-800 transition">
+            <button className="p-2 md:p-3 rounded-lg bg-gray-700 text-white hover:bg-gray-800 active:scale-95 transition">
               <ChevronLeft size={18} />
             </button>
-            <button className="p-2 md:p-3 rounded-lg bg-gray-700 text-white hover:bg-gray-800 transition">
+            <button className="p-2 md:p-3 rounded-lg bg-gray-700 text-white hover:bg-gray-800 active:scale-95 transition">
               <ChevronRight size={18} />
             </button>
           </div>
