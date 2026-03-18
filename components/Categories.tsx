@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -57,8 +57,21 @@ const categories = [
 export default function ProductCategories() {
   const [index, setIndex] = useState(0);
   const [openModal, setOpenModal] = useState(false);
+  const [itemsPerView, setItemsPerView] = useState(1);
 
-  const itemsPerView = 3;
+  /* ✅ Responsive items per view */
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth >= 1024) setItemsPerView(3);
+      else if (window.innerWidth >= 640) setItemsPerView(2);
+      else setItemsPerView(1);
+    };
+
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   const maxIndex = Math.ceil(categories.length / itemsPerView) - 1;
 
   const next = () => {
@@ -96,18 +109,23 @@ export default function ProductCategories() {
             </button>
           </div>
 
-          {/* ✅ FIXED SLIDER */}
+          {/* ✅ Carousel */}
           <div className="overflow-hidden">
             <div
-              className="flex gap-6 transition-transform duration-500"
+              className="flex gap-6 transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${index * (100 / itemsPerView)}%)`,
+                transform: `translateX(-${index * 100}%)`,
               }}
             >
               {categories.map((item, i) => (
                 <div
                   key={i}
-                  className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] flex-shrink-0"
+                  className={`
+                    flex-shrink-0
+                    w-full
+                    sm:w-[calc(50%-12px)]
+                    md:w-[calc(33.333%-16px)]
+                  `}
                 >
                   <Card item={item} />
                 </div>
@@ -118,13 +136,16 @@ export default function ProductCategories() {
           {/* Footer */}
           <div className="flex justify-between items-center mt-10 md:mt-12">
 
-            {/* Dots */}
+            {/* ✅ Dynamic dots */}
             <div className="flex gap-2">
               {[...Array(maxIndex + 1)].map((_, i) => (
-                <div
+                <button
                   key={i}
-                  className={`h-2 w-2 rounded-full ${
-                    i === index ? "bg-gray-900" : "bg-gray-300"
+                  onClick={() => setIndex(i)}
+                  className={`h-2 w-2 rounded-full transition-all ${
+                    i === index
+                      ? "bg-gray-900 scale-125"
+                      : "bg-gray-300"
                   }`}
                 />
               ))}
@@ -189,7 +210,7 @@ function Card({ item }: any) {
           src={item.image}
           alt={item.title}
           fill
-          className="object-cover group-hover:scale-105 transition"
+          className="object-cover group-hover:scale-105 transition duration-300"
         />
       </div>
 
@@ -201,7 +222,7 @@ function Card({ item }: any) {
         <span className="font-bold text-green-600">{item.count}</span>
       </div>
 
-      <button className="w-full py-3 rounded-full bg-[#FBBF24] text-blue-900 font-medium">
+      <button className="w-full py-3 rounded-full bg-[#FBBF24] text-blue-900 font-medium hover:opacity-90 transition">
         {item.button}
       </button>
     </div>
