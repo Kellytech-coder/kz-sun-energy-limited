@@ -26,68 +26,72 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-[#f7f7f7] min-h-screen py-12 md:py-20 px-4 sm:px-6">
+    <main className="bg-[#f7f7f7] min-h-screen py-20 md:py-28 px-4 sm:px-6">
+      
       {/* Header */}
-      <section className="text-center max-w-2xl mx-auto mb-12 md:mb-20">
-        <p className="text-xs md:text-sm text-gray-500 mb-2 md:mb-3 tracking-wide">
+      <section className="text-center max-w-4xl mx-auto mb-20 md:mb-28">
+        <p className="font-poppins text-sm text-gray-500 mb-3 tracking-wide">
           Verified
         </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-[56px] leading-tight font-semibold text-gray-900 mb-4 md:mb-6">
+        <h1 className="font-inter text-5xl sm:text-6xl md:text-[68px] leading-tight font-semibold text-gray-900 mb-6">
           Authentic products, no fakes
         </h1>
 
-        <p className="text-gray-600 text-base md:text-lg px-2 sm:px-0">
+        <p className="font-poppins text-gray-600 text-xl">
           Every supplier is vetted. Every panel is genuine.
         </p>
       </section>
 
       {/* Cards */}
-      <section className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+      <section className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-12">
         {features.map((item, index) => (
           <div
             key={index}
-            className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 flex flex-col justify-between h-auto md:h-[420px] hover:shadow-md transition"
+            className="bg-white border border-gray-200 rounded-3xl overflow-hidden flex flex-col justify-between hover:shadow-xl transition duration-300"
           >
-            <div>
-              <p className="text-xs md:text-sm text-gray-500 mb-2">
+            
+            {/* CONTENT (Top) */}
+            <div className="p-8 md:p-10">
+              <p className="font-poppins text-base text-gray-500 mb-4">
                 {item.label}
               </p>
 
-              <h3 className="text-lg md:text-[22px] font-semibold text-gray-900 leading-snug mb-2 md:mb-3">
+              <h3 className="font-inter text-2xl md:text-3xl font-semibold text-gray-900 leading-snug mb-4">
                 {item.title}
               </h3>
 
-              <p className="text-gray-600 text-sm mb-4 md:mb-5">
+              <p className="font-poppins text-gray-600 text-lg mb-8">
                 {item.description}
               </p>
 
               {item.link && (
                 <a
                   href="#"
-                  className="text-sm md:text-[15px] text-gray-800 font-medium inline-flex items-center gap-1 hover:underline"
+                  className="font-poppins text-lg text-gray-800 font-medium inline-flex items-center gap-2 hover:underline"
                 >
                   {item.link}
-                  <span className="text-lg">›</span>
+                  <span className="text-xl">›</span>
                 </a>
               )}
 
               {item.button && (
-                <button className="mt-4 bg-[#f4b400] hover:bg-[#e0a800] text-black text-sm font-medium px-5 py-2 rounded-full w-full sm:w-auto">
+                <button className="font-poppins mt-8 bg-[#f4b400] hover:bg-[#e0a800] text-blue-900 text-lg font-medium px-7 py-3 rounded-full w-full sm:w-auto">
                   {item.button}
                 </button>
               )}
             </div>
 
-            <div className="mt-5 md:mt-6">
+            {/* IMAGE (Bottom) */}
+            <div className="relative w-full h-[220px] md:h-[240px]">
               <Image
                 src={item.image}
                 alt={item.title}
-                width={400}
-                height={200}
-                className="rounded-xl object-cover w-full h-[120px] sm:h-[140px]"
+                fill
+                className="object-cover"
               />
             </div>
+
           </div>
         ))}
       </section>

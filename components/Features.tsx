@@ -26,10 +26,10 @@ export default function FeaturesSection() {
             {/* Feature 1 */}
             <div>
               <Waves className="text-yellow-400 mb-3 md:mb-4" size={24} />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
+              <h3 className="font-inter text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
                 Genuine equipment
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              <p className="font-poppins text-gray-300 text-sm md:text-base leading-relaxed">
                 All equipment comes with full manufacturer warranty
               </p>
             </div>
@@ -37,10 +37,10 @@ export default function FeaturesSection() {
             {/* Feature 2 */}
             <div>
               <BadgeCheck className="text-yellow-400 mb-3 md:mb-4" size={24} />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
+              <h3 className="font-inter text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
                 Every product verified
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              <p className="font-poppins text-gray-300 text-sm md:text-base leading-relaxed">
                 Encrypted payments with trusted providers
               </p>
             </div>
@@ -48,10 +48,10 @@ export default function FeaturesSection() {
             {/* Feature 3 */}
             <div>
               <CreditCard className="text-yellow-400 mb-3 md:mb-4" size={24} />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
+              <h3 className="font-inter text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
                 Protected checkout
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              <p className="font-poppins text-gray-300 text-sm md:text-base leading-relaxed">
                 All solar equipment comes with full manufacturer warranty coverage.
               </p>
             </div>
@@ -59,10 +59,10 @@ export default function FeaturesSection() {
             {/* Feature 4 */}
             <div>
               <Truck className="text-yellow-400 mb-3 md:mb-4" size={24} />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
+              <h3 className="font-inter text-lg sm:text-xl md:text-2xl font-semibold mb-1 md:mb-2">
                 Fast Lagos delivery
               </h3>
-              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              <p className="font-poppins text-gray-300 text-sm md:text-base leading-relaxed">
                 Bulk pricing for installers and contractors available on request.
               </p>
             </div>
@@ -71,7 +71,7 @@ export default function FeaturesSection() {
 
           {/* BUTTON */}
           <div className="mt-8 md:mt-12">
-            <button className="w-full sm:w-auto bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-medium hover:opacity-90 transition">
+            <button className="font-inter w-full sm:w-auto bg-yellow-400 text-blue-900 px-6 py-3 rounded-full font-medium hover:opacity-90 transition">
               Learn more
             </button>
           </div>

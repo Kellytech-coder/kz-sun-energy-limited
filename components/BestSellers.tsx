@@ -8,11 +8,15 @@ export default function BestsellerSection() {
 
         {/* Header */}
         <div className="text-center mb-10 md:mb-16">
-          <p className="text-xs md:text-sm text-gray-500 mb-2 md:mb-3">Featured</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight">
+          <p className="font-poppins text-xs md:text-sm text-gray-500 mb-2 md:mb-3">
+            Featured
+          </p>
+
+          <h2 className="font-inter text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4 leading-tight">
             Best sellers this month
           </h2>
-          <p className="text-gray-600 text-base md:text-lg px-2 sm:px-0">
+
+          <p className="font-poppins text-gray-600 text-base md:text-lg px-2 sm:px-0">
             Quality equipment trusted by installers and homeowners alike.
           </p>
         </div>
@@ -31,7 +35,7 @@ export default function BestsellerSection() {
             />
 
             {/* Badge */}
-            <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-green-500 text-white text-xs md:text-sm px-2 py-1 md:px-3 md:py-1 rounded-md font-semibold rotate-[-15deg] md:rotate-[-20deg]">
+            <div className="absolute top-4 left-4 md:top-6 md:left-6 bg-green-500 text-white font-inter text-xs md:text-sm px-2 py-1 md:px-3 md:py-1 rounded-md font-semibold rotate-[-15deg] md:rotate-[-20deg]">
               1560W
             </div>
           </div>
@@ -39,24 +43,29 @@ export default function BestsellerSection() {
           {/* RIGHT CONTENT */}
           <div className="w-full md:w-1/2 text-center md:text-left">
 
-            <p className="text-xs md:text-sm text-gray-500 mb-2">Popular</p>
+            <p className="font-poppins text-xs md:text-sm text-gray-500 mb-2">
+              Popular
+            </p>
 
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 md:mb-4">
+            <h3 className="font-inter text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 md:mb-4">
               1560W monocrystalline solar panel
             </h3>
 
-            <p className="text-gray-600 mb-5 md:mb-6 leading-relaxed text-sm md:text-base">
+            <p className="font-poppins text-gray-600 mb-5 md:mb-6 leading-relaxed text-sm md:text-base">
               High efficiency. Proven durability. Ships within 48 hours.
               Perfect for residential systems.
             </p>
 
             {/* Actions */}
             <div className="flex flex-col sm:flex-row items-center md:items-start gap-4 sm:gap-6">
-              <button className="w-full sm:w-auto bg-[#FBBF24] text-gray-900 px-6 py-3 rounded-full font-medium hover:opacity-90 transition">
+              
+              {/* Primary Button */}
+              <button className="font-poppins w-full sm:w-auto bg-[#FBBF24] text-blue-900 px-6 py-3 rounded-full font-medium hover:opacity-90 transition">
                 Add to cart
               </button>
 
-              <button className="flex items-center gap-2 text-gray-700 font-medium hover:underline">
+              {/* Secondary */}
+              <button className="font-poppins flex items-center gap-2 text-gray-700 font-medium hover:underline">
                 View
                 <span className="text-lg">›</span>
               </button>
