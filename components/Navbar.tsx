@@ -17,12 +17,12 @@ export default function Navbar() {
     <nav className="w-full bg-white border-b">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-4">
 
-        {/* Logo → Roboto */}
+        {/* Logo */}
         <div className="text-2xl font-semibold italic font-roboto text-gray-700">
           Logo
         </div>
 
-        {/* DESKTOP MENU → Inter */}
+        {/* DESKTOP MENU */}
         <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium font-inter">
           <li className="hover:text-black cursor-pointer">Home</li>
           <li className="hover:text-black cursor-pointer">Solar panels</li>
@@ -30,7 +30,7 @@ export default function Navbar() {
           <li className="hover:text-black cursor-pointer">Batteries</li>
           <li className="hover:text-black cursor-pointer">Electronics</li>
 
-          {/* Resources Dropdown */}
+          {/* Dropdown */}
           <li
             className="relative"
             onMouseEnter={() => setOpen(true)}
@@ -63,7 +63,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* RIGHT (Desktop) → Poppins */}
+        {/* RIGHT (Desktop) */}
         <div className="hidden md:flex items-center gap-4 font-poppins">
           <button className="px-5 py-2 border rounded-full text-gray-700 hover:bg-gray-100">
             Sign up
@@ -78,24 +78,31 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
-          onClick={() => setMobileMenu(!mobileMenu)}
-          className="md:hidden"
-        >
-          <svg
-            className="w-7 h-7"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {mobileMenu ? (
-              <path strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        {/* MOBILE RIGHT SIDE */}
+        <div className="flex items-center gap-3 md:hidden">
+          
+          {/* ✅ CART ICON (BEFORE MENU) */}
+          <button className="w-10 h-10 flex items-center justify-center bg-yellow-400 rounded-full hover:bg-yellow-500">
+            🛒
+          </button>
+
+          {/* MENU ICON */}
+          <button onClick={() => setMobileMenu(!mobileMenu)}>
+            <svg
+              className="w-7 h-7"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {mobileMenu ? (
+                <path strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+
+        </div>
       </div>
 
       {/* MOBILE MENU */}
