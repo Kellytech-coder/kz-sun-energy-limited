@@ -17,8 +17,8 @@ export default function Navbar() {
     <nav className="w-full bg-white border-b">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-4">
 
-        {/* Logo → Inter */}
-        <div className="text-2xl font-semibold italic font-vector text-gray-700">
+        {/* Logo → Roboto */}
+        <div className="text-2xl font-semibold italic font-roboto text-gray-700">
           Logo
         </div>
 
@@ -97,7 +97,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MOBILE MENU → Poppins */}
+      {/* MOBILE MENU */}
       {mobileMenu && (
         <div className="md:hidden px-6 pb-6 space-y-4 font-poppins">
 
@@ -107,7 +107,6 @@ export default function Navbar() {
             <div>Batteries</div>
             <div>Electronics</div>
 
-            {/* Mobile Resources */}
             <div>
               <button
                 onClick={() => setOpen(!open)}
@@ -127,7 +126,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Buttons */}
           <div className="flex flex-col gap-3 pt-4 border-t">
             <button className="w-full py-3 border rounded-full">
               Sign up
