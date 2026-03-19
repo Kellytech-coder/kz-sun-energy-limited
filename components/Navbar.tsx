@@ -24,6 +24,7 @@ export default function Navbar() {
 
         {/* DESKTOP MENU → Inter */}
         <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium font-inter">
+          <li className="hover:text-black cursor-pointer">Home</li>
           <li className="hover:text-black cursor-pointer">Solar panels</li>
           <li className="hover:text-black cursor-pointer">Inverters</li>
           <li className="hover:text-black cursor-pointer">Batteries</li>
